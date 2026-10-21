@@ -1,11 +1,17 @@
 plugins {
     alias(libs.plugins.android.application)
+
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
     namespace = "com.example.myshop"
     compileSdk {
         version = release(37)
+
+        buildFeatures {
+            viewBinding = true
+        }
     }
 
     defaultConfig {
@@ -32,6 +38,11 @@ android {
 }
 
 dependencies {
+    val navVersion = "2.10.2"
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+
+
     implementation(libs.androidx.activity.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.constraintlayout)
